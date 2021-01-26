@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+import { useDispatch, useSelector } from 'react-redux';
+import { requestData } from './modules/actions'
 import './App.css';
+import { useEffect } from 'react';
 
 function App() {
+  const dispatch = useDispatch();
+  const imgSource = useSelector((state) => state.url)
+
+  useEffect(() => {
+    console.log(imgSource)
+  }, [imgSource])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div>
+        <img src={imgSource?.url} alt="imagem aleatoria"/>
+      </div>
+      <button type="button" onClick={() => dispatch(requestData())}>Get data</button>
     </div>
   );
 }
