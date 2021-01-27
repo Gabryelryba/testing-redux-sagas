@@ -2,7 +2,7 @@ import { actions } from './actions'
 
 const initialState = {
   loading: false,
-  url: null
+  joke: null
 }
 
 function reducer(state = initialState, action) {
@@ -25,7 +25,7 @@ function reducer(state = initialState, action) {
     case actions.CHANGE_IMAGE_SOURCE:
       return {
         ...state,
-        url: action.payload.url
+        joke: action.payload.joke
       }
     default:
       return state

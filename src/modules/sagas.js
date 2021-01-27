@@ -1,23 +1,23 @@
-import { requestFailure, requestSuccess, actions, changeImgSource } from './actions';
+import { requestFailure, requestSuccess, actions, changeJoke } from './actions';
 import { takeLatest, call, put } from 'redux-saga/effects'
 import api from '../services/api'
 
 export const fetchData = async () => {
-  const data = await api.get('800')
-  return data
+  const res = await api.get()
+  return res
 }
 
 export function* getData() {
   const response = yield call(fetchData)
 
-  // console.log(response)
+  const { data } = response;
 
-  if (!response?.ok) {
+  if (!data?.joke) {
     return yield put(requestFailure())
   }
   
   yield put(requestSuccess())
-  return yield put(changeImgSource(response))
+  return yield put(changeJoke(data.joke))
 }
 
 export default function* mysaga(){ 
