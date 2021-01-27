@@ -5,16 +5,16 @@ import { useEffect } from 'react';
 
 function App() {
   const dispatch = useDispatch();
-  const imgSource = useSelector((state) => state.url)
+  const joke = useSelector((state) => state.joke)
 
   useEffect(() => {
-    console.log(imgSource)
-  }, [imgSource])
+    console.log(joke)
+  }, [joke])
 
   return (
     <div>
       <div>
-        <img src={imgSource?.url} alt="imagem aleatoria"/>
+        <p>{joke}</p>
       </div>
       <button type="button" onClick={() => dispatch(requestData())}>Get data</button>
     </div>

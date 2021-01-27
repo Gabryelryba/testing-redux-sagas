@@ -23,11 +23,11 @@ export function requestSuccess() {
   }
 }
 
-export function changeImgSource(url) {
+export function changeImgSource(joke) {
   return {
     type: actions.CHANGE_IMAGE_SOURCE,
     payload: {
-      url,
+      joke,
     }
   }
 }
