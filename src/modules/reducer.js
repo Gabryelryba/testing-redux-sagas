@@ -22,7 +22,7 @@ function reducer(state = initialState, action) {
         ...state,
         loading: false
       }
-    case actions.CHANGE_IMAGE_SOURCE:
+    case actions.CHANGE_JOKE:
       return {
         ...state,
         joke: action.payload.joke

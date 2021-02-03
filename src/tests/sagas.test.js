@@ -1,7 +1,7 @@
 import { getData, mySaga } from '../modules/sagas'
 import fetchData from '../services/fetchData';
-import { requestFailure, requestSuccess, changeJoke, requestData, actions } from '../modules/actions';
-import { takeLatest, call, put, select } from 'redux-saga/effects'
+import { requestFailure, requestSuccess, changeJoke, actions } from '../modules/actions';
+import { takeLatest, call, put } from 'redux-saga/effects'
 
 const mockedTruthyResponse = {
   ok: true,
