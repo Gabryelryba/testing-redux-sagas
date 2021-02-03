@@ -5,18 +5,18 @@ import { useEffect } from 'react';
 
 function App() {
   const dispatch = useDispatch();
-  const joke = useSelector((state) => state.joke)
+  const { joke } = useSelector((state) => state)
 
-  useEffect(() => {
-    console.log(joke)
-  }, [joke])
+  // useEffect(() => {
+  //   console.log(joke)
+  // }, [joke])
 
   return (
     <div>
       <div>
         <p>{joke}</p>
       </div>
-      <button type="button" onClick={() => dispatch(requestData())}>Get data</button>
+      <button type="button" onClick={() => dispatch(requestData())}>Generate Joke</button>
     </div>
   );
 }
