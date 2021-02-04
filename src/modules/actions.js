@@ -25,7 +25,7 @@ export function requestSuccess() {
 
 export function changeJoke(joke) {
   return {
-    type: actions.CHANGE_IMAGE_SOURCE,
+    type: actions.CHANGE_JOKE,
     payload: {
       joke,
     }

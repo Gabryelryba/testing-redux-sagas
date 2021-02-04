@@ -22,7 +22,7 @@ describe('actions tests', () => {
     it('change joke action should have the right type and payload', () => {
       const expectedAction = {
         type: actions.CHANGE_JOKE,
-        data: {
+        payload: {
           joke: 'this is a test joke'
         }
       }
