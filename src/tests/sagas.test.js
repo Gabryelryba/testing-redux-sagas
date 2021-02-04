@@ -3,7 +3,7 @@ import fetchData from '../services/fetchData';
 import { requestFailure, requestSuccess, changeJoke, actions } from '../modules/actions';
 import { takeLatest, call, put } from 'redux-saga/effects'
 
-const mockedTruthyResponse = {
+export const mockedTruthyResponse = {
   ok: true,
   status: 200,
   data: {
@@ -11,13 +11,16 @@ const mockedTruthyResponse = {
   }
 }
 
-const mockedFalsyResponse = {
+export const mockedFalsyResponse = {
   ok: false,
   status: 500,
   url: ''
-} 
+}
 
 describe('Testing mySaga flow', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  })
   const generator = mySaga()
   it('mySaga should call getData when REQUEST_DATA is dispatched', () => {
     expect(generator.next().value).toEqual(takeLatest(actions.REQUEST_DATA, getData));
